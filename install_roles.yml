@@ -1,0 +1,6 @@
+---
+
+# User
+- src: https://github.com/CMcDonald82/ansible-role-user.git
+  version: master
+  name: user_role
