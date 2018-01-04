@@ -9,11 +9,34 @@ Install the roles listed in install_roles.yml
 ansible-galaxy install -r install_roles.yml
 ```
 
+## Setup
+
 Specify the ip address of the server you wish to deploy to in the hosts file (environments/production/hosts)
 
 NOTE: Feel free to create more environments in the /environments dir - you can name them whatever you want and create separate group_vars & host_vars directories for each one. When adding more environments, be sure to create a hosts file for each one so you can specify the IP address of the server it will be deploying to.
+
+## Using Ansible Vault
+NOTE: you can change the editor that is used to open files when running Ansible Vault commands 
+See https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+
+Create a file called .vault_password within the top-level dir. This file will contain a single line which is your private vault password. I recommend generating a strong one with the following command using the passlib library:
+```
+python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.using(rounds=5000).hash(getpass.getpass())"
+```
+The .vault_password file is included in the .gitignore file so it will not be committed to the repo to prevent accidentally distributing sensitive information.
+
+Create and encrypt a vault.yml file in environments/production/group_vars/all which will contain the vault_deploy_password variable. Generate the vault_deploy_password using the same script from above (just make sure to run it again to create a new password separate from the one used in .vault_password)
+
+## Usage
 
 Run the playbook
 ```
 ansible-playbook site.yml
 ```
+
+
+## Dependencies
+Since these are Python packages, I recommend creating a virtualenv to install these packages in to keep them isolated from the rest of your local environment. See https://virtualenv.pypa.io/en/stable/ for details about virtualenv.
+
+ansible
+passlib (for generating strong passwords via the command line)
