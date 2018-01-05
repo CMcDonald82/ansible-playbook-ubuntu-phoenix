@@ -32,7 +32,15 @@ python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_c
 ```
 The .vault_password.txt file is ignored in the .gitignore file so it will not be committed to the repo. This helps prevent accidentally distributing sensitive information.
 
-* Create and encrypt a vault.yml file in environments/production/group_vars/all which will contain the vault_deploy_password variable. Generate the vault_deploy_password using the same script from above (just make sure to run it again to create a new password separate from the one used in .vault_password.txt)
+* Create a vault.yml file in environments/production/group_vars/all which will contain the vault_deploy_password variable. Generate the vault_deploy_password using the same script from above (just make sure to run it again to create a new password separate from the one used in .vault_password.txt) Then add it to the vault.yml file:
+```
+vault_deploy_password: <the password you just generated>
+```
+
+* Save the file, then encrypt it:
+```
+ansible-vault encrypt environments/production/group_vars/all/vault.yml
+```
 
 ## Usage
 
