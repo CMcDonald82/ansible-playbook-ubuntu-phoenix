@@ -7,4 +7,4 @@
 
   roles:
     - common 
-    - user_role
+    - cmcdonald82.user_role
