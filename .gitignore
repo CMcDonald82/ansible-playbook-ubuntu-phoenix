@@ -1,1 +1,2 @@
-.vault_password
+*.retry
+.vault_password.txt

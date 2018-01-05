@@ -2,7 +2,7 @@
 
 - name: Setup Ubuntu server with PostgreSQL, Nginx, SSL, UFW for use with Phoenix app
   hosts: all
-  remote_user: "{{ deploy_username }}"
+  remote_user: root
   become: yes
 
   roles:
