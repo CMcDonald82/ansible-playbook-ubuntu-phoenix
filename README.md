@@ -44,18 +44,33 @@ ansible-vault encrypt environments/production/group_vars/all/vault.yml
 
 ## Usage
 * Pass variables to roles
-  Generally, there are 2 ways that seem to work best:
+  Generally, there are 3 ways that seem to work best:
   1. Place the variables in group_vars/all (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted))
 
-  2. Specify the variables directly with the role:
+  2. Use the vars or vars_files entries in the playbook:
   ```
-  ex.)  roles:
-          - role: role_name
-            variable1: value1
-            variable2: value2
-            etc...
+  ex.)
+    - hosts: all
+      vars:
+        variable1: value1
+        variable2: value2
+        etc...
+      vars_files:
+        - path/to/vars_file1
+        - path/to/vars_file2
+        etc...
   ```
-  
+
+  3. Specify the variables directly with the role:
+  ```
+  ex.)  
+    roles:
+      - role: role_name
+        variable1: value1
+        variable2: value2
+        etc...
+  ```
+
 * Run the playbook
 ```
 ansible-playbook site.yml
