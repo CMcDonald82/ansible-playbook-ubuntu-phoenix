@@ -5,6 +5,15 @@
   remote_user: root
   become: yes
 
+  pre_tasks:
+    - name: Log test deploy user
+      debug:
+        msg: "Test deploy user: {{ test_deploy_username }}"
+
+    - name: Log test vault deploy user
+      debug:
+        msg: "Test Vault deploy user: {{ test_vault_deploy_username }}"
+
   roles:
     - common 
     - cmcdonald82.user_role

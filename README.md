@@ -25,6 +25,10 @@ NOTE: Feel free to create more environments in the /environments dir - you can n
 ## Using Ansible Vault
 NOTE: you can change the editor that is used to open files when running Ansible Vault commands 
 See https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+ex.) To change the default editor to Sublime Text:
+```
+export EDITOR='subl -w'
+```
 
 * Create a file called .vault_password.txt within the top-level dir. This file will contain a single line which is your private vault password for encrypting/decrypting secrets. I recommend generating a strong one with the following command using the passlib library:
 ```
@@ -43,9 +47,8 @@ ansible-vault encrypt environments/production/group_vars/all/vault.yml
 ```
 
 ## Usage
-* Pass variables to roles
-  Generally, there are 3 ways that seem to work best:
-  1. Place the variables in group_vars/all (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted))
+* Pass variables to roles. Generally, there are 3 ways that seem to work best:
+  1. Place the variables in files in group_vars/all directory (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted)). I usually create a separate subdirectory for each role under the group_vars/all directory to keep the variables for each role separate. Each of these role-specific subdirectories contains a vars.yml and vault.yml file.
 
   2. Use the vars or vars_files entries in the playbook:
   ```
