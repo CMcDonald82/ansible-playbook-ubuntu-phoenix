@@ -48,12 +48,14 @@ ansible-vault encrypt environments/production/group_vars/all/vault.yml
   1. Place the variables in group_vars/all (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted))
 
   2. Specify the variables directly with the role:
+  ```
   ex.)  roles:
           - role: role_name
             variable1: value1
             variable2: value2
             etc...
-
+  ```
+  
 * Run the playbook
 ```
 ansible-playbook site.yml
