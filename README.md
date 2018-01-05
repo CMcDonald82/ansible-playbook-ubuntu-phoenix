@@ -4,14 +4,21 @@ Ansible playbook for setting up an Ubuntu server to run a Phoenix (Elixir) app
 
 ## Requirements
 
-Install the roles listed in install_roles.yml
+### Local Machine
+* Install [Ansible](http://docs.ansible.com/ansible/latest/intro_installation.html)
+
+* Install the roles listed in install_roles.yml
 ```
 ansible-galaxy install -r install_roles.yml
 ```
 
+### Target Machine
+* Server running Ubuntu 16.04 LTS (Xenial Xerus)
+
+
 ## Setup
 
-Specify the ip address of the server you wish to deploy to in the hosts file (environments/production/hosts)
+* Specify the ip address of the server you wish to deploy to in the hosts file (environments/production/hosts)
 
 NOTE: Feel free to create more environments in the /environments dir - you can name them whatever you want and create separate group_vars & host_vars directories for each one. When adding more environments, be sure to create a hosts file for each one so you can specify the IP address of the server it will be deploying to.
 
@@ -19,17 +26,17 @@ NOTE: Feel free to create more environments in the /environments dir - you can n
 NOTE: you can change the editor that is used to open files when running Ansible Vault commands 
 See https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
 
-Create a file called .vault_password within the top-level dir. This file will contain a single line which is your private vault password. I recommend generating a strong one with the following command using the passlib library:
+* Create a file called .vault_password.txt within the top-level dir. This file will contain a single line which is your private vault password for encrypting/decrypting secrets. I recommend generating a strong one with the following command using the passlib library:
 ```
 python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.using(rounds=5000).hash(getpass.getpass())"
 ```
-The .vault_password file is included in the .gitignore file so it will not be committed to the repo to prevent accidentally distributing sensitive information.
+The .vault_password.txt file is ignored in the .gitignore file so it will not be committed to the repo. This helps prevent accidentally distributing sensitive information.
 
-Create and encrypt a vault.yml file in environments/production/group_vars/all which will contain the vault_deploy_password variable. Generate the vault_deploy_password using the same script from above (just make sure to run it again to create a new password separate from the one used in .vault_password)
+* Create and encrypt a vault.yml file in environments/production/group_vars/all which will contain the vault_deploy_password variable. Generate the vault_deploy_password using the same script from above (just make sure to run it again to create a new password separate from the one used in .vault_password.txt)
 
 ## Usage
 
-Run the playbook
+* Run the playbook
 ```
 ansible-playbook site.yml
 ```
@@ -38,5 +45,5 @@ ansible-playbook site.yml
 ## Dependencies
 Since these are Python packages, I recommend creating a virtualenv to install these packages in to keep them isolated from the rest of your local environment. See https://virtualenv.pypa.io/en/stable/ for details about virtualenv.
 
-ansible
-passlib (for generating strong passwords via the command line)
+* ansible
+* passlib (for generating strong passwords via the command line)
