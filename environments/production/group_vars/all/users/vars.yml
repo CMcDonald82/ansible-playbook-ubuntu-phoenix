@@ -1,3 +1,20 @@
 ---
 
 # Place non-sensitive variables specific to the users role here 
+
+system_users:
+  - username: "{{ vault_deploy_username }}"
+    password: "{{ vault_deploy_password }}"
+    groups:
+      - sudo
+    ssh_keys:
+      - ~/.ssh/id_rsa.pub
+
+  - username: "test_user"
+    password: "{{ vault_deploy_password }}"
+    groups: 
+      - sudo
+    generate_ssh_key: true
+    ssh_keys: 
+      - ~/.ssh/id_rsa.pub
+

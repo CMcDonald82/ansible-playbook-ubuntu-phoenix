@@ -31,7 +31,7 @@ ex.) To change the default editor to Sublime Text:
 export EDITOR='subl -w'
 ```
 
-* Create a file called .vault_password.txt within the top-level dir. This file will contain a single line which is your private vault password for encrypting/decrypting secrets. I recommend generating a strong one with the following command using the passlib library:
+* Create a file called .vault_password.txt within the top-level directory. This file will contain a single line which is your private vault password for encrypting/decrypting secrets. I recommend generating a strong one with the following command using the passlib library:
 ```
 python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.using(rounds=5000).hash(getpass.getpass())"
 ```
