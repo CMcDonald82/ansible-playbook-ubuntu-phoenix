@@ -9,12 +9,3 @@ system_users:
       - sudo
     ssh_keys:
       - ~/.ssh/id_rsa.pub
-
-  - username: "test_user"
-    password: "{{ vault_deploy_password }}"
-    groups: 
-      - sudo
-    generate_ssh_key: true
-    ssh_keys: 
-      - ~/.ssh/id_rsa.pub
-
