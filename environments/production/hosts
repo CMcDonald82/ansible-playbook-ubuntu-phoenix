@@ -1,6 +1,6 @@
 [production]
 # Put IP address of your server here!
-45.55.186.203
+
 
 [production:vars]
 ansible_python_interpreter=/usr/bin/python3
