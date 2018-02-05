@@ -3,7 +3,7 @@
 # User
 - src: https://github.com/CMcDonald82/ansible-role-user.git
   version: master
-  name: cmcdonald82.user_role
+  name: cmcdonald82.users_role
 
 # Nginx
 - src: https://github.com/CMcDonald82/ansible-role-nginx.git
