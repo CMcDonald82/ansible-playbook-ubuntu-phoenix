@@ -21,3 +21,4 @@
   roles:
     - common 
     - cmcdonald82.user_role
+    - cmcdonald82.nginx_role

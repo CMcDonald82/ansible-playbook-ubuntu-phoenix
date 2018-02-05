@@ -6,5 +6,5 @@
     state: present
     update_cache: yes
   with_items:
-    - fail2ban
-    - ufw
+    # - fail2ban # now included in ansible-role-server-security
+    # - ufw # now included in ansible-role-firewall

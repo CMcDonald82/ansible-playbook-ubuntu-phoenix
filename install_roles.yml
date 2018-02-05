@@ -4,3 +4,33 @@
 - src: https://github.com/CMcDonald82/ansible-role-user.git
   version: master
   name: cmcdonald82.user_role
+
+# Nginx
+- src: https://github.com/CMcDonald82/ansible-role-nginx.git
+  version: master
+  name: cmcdonald82.nginx_role
+
+# PostgreSQL
+- src: https://github.com/CMcDonald82/ansible-role-postgresql.git
+  version: master
+  name: cmcdonald82.postgresql_role
+
+# SSL
+- src: https://github.com/CMcDonald82/ansible-role-ssl.git
+  version: master
+  name: cmcdonald82.ssl_role
+
+# Server Security 
+- src: https://github.com/CMcDonald82/ansible-role-server-security.git
+  version: master
+  name: cmcdonald82.server_security_role
+
+# Firewall 
+- src: https://github.com/CMcDonald82/ansible-role-firewall.git
+  version: master
+  name: cmcdonald82.firewall_role
+
+# Environment
+- src: https://github.com/CMcDonald82/ansible-role-environment.git
+  version: master
+  name: cmcdonald82.environment_role

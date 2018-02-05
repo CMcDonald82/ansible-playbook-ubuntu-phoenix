@@ -24,7 +24,7 @@ NOTE: Feel free to create more environments in the /environments dir - you can n
 
 ## Using Ansible Vault
 NOTE: you can change the editor that is used to open files when running Ansible Vault commands 
-See https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+See [this article](https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04)
 
 ex.) To change the default editor to Sublime Text:
 ```
