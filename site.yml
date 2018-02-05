@@ -2,7 +2,7 @@
 
 - name: Setup Ubuntu server with PostgreSQL, Nginx, SSL, UFW for use with Phoenix app
   hosts: all
-  remote_user: root
+  remote_user: "{{ remote_username }}"
   become: yes
 
   # pre_tasks:
