@@ -1,0 +1,13 @@
+---
+
+# NOTE: Specify a database here that matches the prod database for the phoenix example boilerplate project (yet to be setup)
+postgresql_databases: []
+
+# NOTE: Specify any postgres-specific users here
+postgresql_users: []
+
+postgresql_hba_entries: 
+  - type: local
+    user: "{{ vault_deploy_username }}"
+    method: md5
+    database: all 
