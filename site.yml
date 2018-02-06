@@ -19,7 +19,6 @@
   #       msg: "Test Vault deploy user: {{ test_vault_deploy_username }}"
 
   roles:
-    # - common 
     - cmcdonald82.users_role
     # - cmcdonald82.postgresql_role
     # - cmcdonald82.ssl_role
