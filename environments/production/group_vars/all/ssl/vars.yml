@@ -1,7 +1,7 @@
 ---
 
-ssl_email: me@example.com
-ssl_domain_name: example.com
+ssl_email: "{{ vault_ssl_email }}"
+ssl_domain_name: "{{ vault_ssl_domain_name }}"
 ssl_domains: 
   - "{{ ssl_domain_name }}"
   - "www.{{ ssl_domain_name }}"
