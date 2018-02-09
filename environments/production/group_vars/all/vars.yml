@@ -2,6 +2,4 @@
 
 # Put any environment-specific vars here that are NOT sensitive
 
-# deploy_username: deploy
-
-remote_username: root
+remote_username: "{{ vault_deploy_username }}"

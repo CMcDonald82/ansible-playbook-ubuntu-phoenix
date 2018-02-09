@@ -1,5 +1,7 @@
 ---
 
+# Place non-sensitive variables specific to the postgresql role here 
+
 # NOTE: Specify a database here that matches the prod database for the phoenix example boilerplate project (yet to be setup)
 postgresql_databases: []
 

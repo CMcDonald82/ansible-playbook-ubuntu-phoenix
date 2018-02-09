@@ -20,9 +20,9 @@
 
   roles:
     - cmcdonald82.users_role
-    # - cmcdonald82.postgresql_role
-    # - cmcdonald82.ssl_role
+    - cmcdonald82.postgresql_role
+    - cmcdonald82.ssl_role
     - cmcdonald82.nginx_role
-    # - cmcdonald82.environment_role
-    # - cmcdonald82.firewall_role
-    # - cmcdonald82.server_security_role
+    - cmcdonald82.environment_role
+    - cmcdonald82.firewall_role
+    - cmcdonald82.server_security_role

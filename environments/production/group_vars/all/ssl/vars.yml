@@ -1,5 +1,8 @@
 ---
 
+# Place non-sensitive variables specific to the ssl role here 
+
+ssl_create_cert: true
 ssl_email: "{{ vault_ssl_email }}"
 ssl_domain_name: "{{ vault_ssl_domain_name }}"
 ssl_domains: 
