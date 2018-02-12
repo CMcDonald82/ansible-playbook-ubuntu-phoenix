@@ -2,3 +2,8 @@
 
 environment_vars:
   REPLACE_OS_VARS: true
+  DB_USERNAME: "{{ vault_environment_db_username }}"
+  DB_PASSWORD: "{{ vault_environment_db_password }}"
+  DB_HOSTNAME: "{{ vault_environment_db_hostname }}"
+  SECRET_KEY_BASE: "{{ vault_environment_secret_key_base }}"
+  HOSTNAME: "{{ ssl_domain_name }}"
