@@ -5,19 +5,6 @@
   remote_user: "{{ remote_username }}"
   become: yes
 
-  # pre_tasks:
-    # - name: Log system_users
-    #   debug:
-    #     msg: "Test system users: {{ system_users }}"
-
-  #   - name: Log test deploy user
-  #     debug:
-  #       msg: "Test deploy user: {{ test_deploy_username }}"
-
-  #   - name: Log test vault deploy user
-  #     debug:
-  #       msg: "Test Vault deploy user: {{ test_vault_deploy_username }}"
-
   roles:
     - cmcdonald82.users_role
     - cmcdonald82.postgresql_role
