@@ -7,4 +7,4 @@ environment_vars:
   DB_PASSWORD: "{{ vault_postgresql_db_password }}"
   DB_HOSTNAME: "{{ vault_postgresql_db_hostname }}"
   SECRET_KEY_BASE: "{{ vault_environment_secret_key_base }}"
-  HOSTNAME: "{{ ssl_domain_name }}"
+  DOMAIN_NAME: "{{ ssl_domain_name }}"

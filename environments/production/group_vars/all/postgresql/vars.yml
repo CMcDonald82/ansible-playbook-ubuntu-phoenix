@@ -5,12 +5,12 @@
 # NOTE: Specify a database here that matches the prod database for the phoenix example boilerplate project (yet to be setup)
 postgresql_databases: 
   - name: "{{ vault_postgresql_db_name }}"
-    # login_password: "{{ vault_postgresql_db_password }}"
 
 # NOTE: Specify any postgres-specific users here
 postgresql_users: 
   - name: "{{ vault_deploy_username }}"
-    password: "{{ vault_postgresql_db_password }}"
+    password: "{{ vault_postgresql_db_password }}" 
+    encrypted: yes
     db: "{{ vault_postgresql_db_name }}"
 
 postgresql_hba_entries: 
