@@ -8,3 +8,5 @@ environment_vars:
   DB_HOSTNAME: "{{ vault_postgresql_db_hostname }}"
   SECRET_KEY_BASE: "{{ vault_environment_secret_key_base }}"
   DOMAIN_NAME: "{{ ssl_domain_name }}"
+  SSL_KEY_PATH: "{{ ssl_key_path }}"
+  SSL_CERT_PATH: "{{ ssl_cert_path }}"
