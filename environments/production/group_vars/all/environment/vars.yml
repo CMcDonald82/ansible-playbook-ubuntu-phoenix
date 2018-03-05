@@ -8,10 +8,6 @@ environment_vars:
   DB_HOSTNAME: "{{ vault_postgresql_db_hostname }}"
   SECRET_KEY_BASE: "{{ vault_environment_secret_key_base }}"
   DOMAIN_NAME: "{{ ssl_domain_name }}"
-  # SSL_KEY_PATH: "{{ ssl_key_path }}"
-  # SSL_CERT_PATH: "{{ ssl_cert_path }}"
   PORT: 4000
   PHOENIX_APP_NAME: starter
-  # DATABASE_URL: "ecto://deploy:postgres@localhost/phoenix_starter_prod" # Not needed anymore
-  # TODO: Might want to add COOKIE for distillery releases
-  COOKIE: "{{ vault_environment_cookie }}" # put in vault file
+  COOKIE: "{{ vault_environment_cookie }}" 
