@@ -3,6 +3,8 @@
 # Place non-sensitive variables specific to the postgresql role here 
 
 # NOTE: Specify a database here that matches the prod database for the phoenix example boilerplate project (yet to be setup)
+# postgresql_version: 10 # Postgres 10 seems to have connection issues - try to figure out why. Maybe due to requiring encrypted passwords in version 10? UPDATE: This issue is fixed as long as postgrex version 0.13.5 is used instead of 0.13.4
+
 postgresql_databases: 
   - name: "{{ vault_postgresql_db_name }}"
 
@@ -12,6 +14,7 @@ postgresql_users:
     password: "{{ vault_postgresql_db_password }}" 
     encrypted: yes
     db: "{{ vault_postgresql_db_name }}"
+    role_attr_flags: "SUPERUSER,LOGIN"
 
 postgresql_hba_entries: 
   - type: local
