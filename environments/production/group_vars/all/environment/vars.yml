@@ -9,5 +9,5 @@ environment_vars:
   SECRET_KEY_BASE: "{{ vault_environment_secret_key_base }}"
   DOMAIN_NAME: "{{ ssl_domain_name }}"
   PORT: 4000
-  PHOENIX_APP_NAME: starter
+  PHOENIX_APP_NAME: "{{ phoenix_app_name }}"
   COOKIE: "{{ vault_environment_cookie }}" 
