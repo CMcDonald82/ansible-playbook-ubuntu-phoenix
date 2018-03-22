@@ -7,6 +7,6 @@ ssl_email: "{{ vault_ssl_email }}"
 ssl_key_path: "/etc/letsencrypt/live/{{ ssl_domain_name }}/privkey.pem"
 ssl_cert_path: "/etc/letsencrypt/live/{{ ssl_domain_name }}/fullchain.pem"
 ssl_domain_name: "{{ vault_ssl_domain_name }}"
-ssl_domains: 
+ssl_hostnames: 
   - "{{ ssl_domain_name }}"
   - "www.{{ ssl_domain_name }}"
