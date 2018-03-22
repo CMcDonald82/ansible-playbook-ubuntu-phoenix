@@ -263,10 +263,7 @@ Further explanation for each role can be found by clicking on the role name
   - DB_USERNAME: This is the username of the user that will be connecting to the DB_NAME database. This user should be created along with the DB_NAME database and be able to connect to the DB_NAME database.
   - DB_PASSWORD: The password for the user that will be connecting to the DB_NAME database. 
   - DB_HOSTNAME: The hostname of the server where the database will be. We can set this to localhost if we are running the database on the same server as the app.
-  - SECRET_KEY_BASE: This is a token that is used by the Phoenix app. Generate it with the following command (run this command from within a Phoenix project, then copy the generated key to the SECRET_KEY_BASE variable in the environment_vars variable):
-```
-mix phx.gen.secret
-```
+  - SECRET_KEY_BASE: This is a token that is used by the Phoenix app. Generate it with the 'mix phx.gen.secret' command specified in the 'Variables -> Environment -> vault.yml' section of this README. Run this command from within a Phoenix project, then copy the generated key to the SECRET_KEY_BASE variable in the environment_vars variable.
   - DOMAIN_NAME: The domain name for the server you'll be deploying your app to (ex. example.com). You will need to have obtained, setup and configured this separately (purchase domain name and set it up to point to this server you will be deploying your app to). See step 4 of the 'Setup' section of this README, for some information on how to set up a domain name that points to the server you will be deploying to.
   - PORT: The port that the Phoenix app will be running on. You can set this to 4000.
   - PHOENIX_OTP_APP_NAME: This is the name you're giving your project. This variable will be used by the Edeliver config and the custom vm.args.prod file in the Phoenix app. It should be the [snake_case](https://en.wikipedia.org/wiki/Snake_case) version of the name you want to give your new app (for example, if you're deploying a Phoenix app called ExampleApp, you would set this env var to example_app).
