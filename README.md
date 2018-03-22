@@ -59,31 +59,33 @@ The .vault_password.txt file is ignored in the .gitignore file so it will not be
 
 ## Usage
 * Pass variables to roles. Generally, there are 3 ways that seem to work best:
+
+1. Place the variables in files in group_vars/all directory (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted)). I usually create a separate subdirectory for each role under the group_vars/all directory to keep the variables for each role separate. Each of these role-specific subdirectories contains a vars.yml and vault.yml file. This is the setup used in this project, so just look at the directory structure for an example.
+
+2. Use the vars or vars_files entries in the playbook:
 ```  
-  1. Place the variables in files in group_vars/all directory (place non-sensitive variables in vars.yml, place sensitive variables such as passwords and secrets in vault.yml (encrypted)). I usually create a separate subdirectory for each role under the group_vars/all directory to keep the variables for each role separate. Each of these role-specific subdirectories contains a vars.yml and vault.yml file. This is the setup used in this project, so just look at the directory structure for an example.
+# site.yml
 
-  2. Use the vars or vars_files entries in the playbook:
-  
-  ex.)
-    - hosts: all
-      vars:
-        variable1: value1
-        variable2: value2
-        etc...
-      vars_files:
-        - path/to/vars_file1
-        - path/to/vars_file2
-        etc...
+- hosts: all
+  vars:
+    variable1: value1
+    variable2: value2
+    etc...
+  vars_files:
+    - path/to/vars_file1
+    - path/to/vars_file2
+    etc...
+```
 
-  3. Specify the variables directly with the role:
-  
-  ex.)  
-    roles:
-      - role: role_name
-        variable1: value1
-        variable2: value2
-        etc...
-  
+3. Specify the variables directly with the role:
+```  
+# site.yml
+
+roles:
+  - role: role_name
+    variable1: value1
+    variable2: value2
+    etc...
 ```
 This playbook is setup using the 1st way of passing variables to roles. A list of all the variables necessary for the roles can be found in the Variables section below. Make sure all the variables in all the files in the directories under 
 environments/production/group_vars/all have been properly set.
