@@ -109,13 +109,16 @@ ansible-playbook site.yml
 ## Variables
 
 * Global
-vars.yml:
 ```
+# vars.yml
+
 remote_username: "{{ vault_deploy_username }}"
 ```
 This is the username that is used when running commands via Ansible on the remote server. Since Ansible will SSH into the remote server as this user, it is important that the user specified here has permission to SSH into the remote server. The two most common values for this variable will be 'root' (used the first time the server is provisioned, since root will be the only user that exists on the server at that point) and the user that is created as part of this playbook for the purpose of deploying the app (usually named 'deploy'). Once the server has been provisioned, the 'deploy' user will exist on the server and the 'root' user will not be able to SSH in anymore so we will need to make sure this variable is set to the 'deploy' user on subsequent runs of the playbook.
 
 ```
+# vars.yml
+
 phoenix_otp_app_name: new_app
 ```
 This is the OTP-style, "snake_case" format of the name of the app you're deploying to the server. This variable is needed mainly for 2 reasons: to be set as an environment variable, which will be used by the vm.args file that Erlang uses to configure the app, and in the custom Nginx serverblock file as part of the path to the location where the static assets will be served from once the app is built and deployed as an Elixir release to the server.   
