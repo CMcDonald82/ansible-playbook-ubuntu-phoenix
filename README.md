@@ -52,9 +52,15 @@ export EDITOR='subl -w'
 ```
 
 * Create a file called .vault_password.txt within the top-level directory. This file will contain a single line which is your private vault password for encrypting/decrypting secrets. I recommend generating a strong one with the following command using the passlib library:
+You will be prompted for a password when running this command - enter your system password
 ```
 python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.using(rounds=5000).hash(getpass.getpass())"
+
+For Python 3.x you will need to format the print part of this command a bit differently (with parens):
+
+python -c "from passlib.hash import sha512_crypt; import getpass; print(sha512_crypt.using(rounds=5000).hash(getpass.getpass()))"
 ```
+
 The .vault_password.txt file is ignored in the .gitignore file so it will not be committed to the repo. This helps prevent accidentally distributing sensitive information.
 
 ## Usage
