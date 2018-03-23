@@ -119,7 +119,7 @@ This is the username that is used when running commands via Ansible on the remot
 ```
 # vars.yml
 
-phoenix_otp_app_name: new_app
+phoenix_otp_app_name: example_app
 ```
 This is the OTP-style, "snake_case" format of the name of the app you're deploying to the server. This variable is needed mainly for 2 reasons: to be set as an environment variable, which will be used by the vm.args file that Erlang uses to configure the app, and in the custom Nginx serverblock file as part of the path to the location where the static assets will be served from once the app is built and deployed as an Elixir release to the server.   
 

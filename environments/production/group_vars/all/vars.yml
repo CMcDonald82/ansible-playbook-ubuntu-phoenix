@@ -3,4 +3,4 @@
 # Put any environment-specific vars here that are NOT sensitive
 
 remote_username: "{{ vault_deploy_username }}"
-phoenix_otp_app_name: new_app
+phoenix_otp_app_name: example_app
