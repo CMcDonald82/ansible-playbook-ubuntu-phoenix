@@ -10,7 +10,7 @@ This playbook will install and configure the following
 
 * Install the roles listed in install_roles.yml
 ```
-ansible-galaxy install -r install_roles.yml
+ansible-galaxy install -r install_roles.yml --force
 ```
 
 ### Target Machine (Server)
