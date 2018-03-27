@@ -2,5 +2,5 @@
 
 # Place non-sensitive variables specific to the nginx role here 
 
-nginx_sites_available_files: 
+nginx_serverblock_files: 
   - ./templates/nginx/serverblocks/phoenix-example.conf

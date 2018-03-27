@@ -207,7 +207,7 @@ These are the email and domain name that will be used by Certbot to generate and
 ```
 # vars.yml
 
-nginx_sites_available_files: 
+nginx_serverblock_files: 
   - ./templates/nginx/serverblocks/phoenix-example.conf
 ```
 This is the path to the custom serverblock file(s) for your phoenix app. You can create multiple such files, just put the path to each one here. This way you can tailor your Nginx configurations based on the architecture of the specific app you're deploying while reusing this playbook across different projects.
