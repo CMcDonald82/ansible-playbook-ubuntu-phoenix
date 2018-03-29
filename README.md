@@ -1,9 +1,18 @@
 # ansible-playbook-ubuntu-phoenix
 Ansible playbook for setting up an Ubuntu server to run a Phoenix (Elixir) app
 
-This playbook will install and configure the following 
+This playbook will install and configure the following:
+* New user for deployment 
+* Nginx w/SSL configuration via Certbot
+* PostgreSQL (10)
+* UFW
+* Environment variables
+
+The [SSL test](https://www.ssllabs.com/ssltest/) should give an A+ rating once the server has been setup with this playbook.
 
 ## Requirements
+* A server
+* A domain name
 
 ### Local Machine
 * Install [Ansible](http://docs.ansible.com/ansible/latest/intro_installation.html)
