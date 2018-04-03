@@ -4,3 +4,5 @@
 
 nginx_serverblock_files: 
   - ./templates/nginx/serverblocks/phoenix-example.conf
+
+nginx_serverblock_files_removed: []
