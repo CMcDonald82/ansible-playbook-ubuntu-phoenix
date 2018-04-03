@@ -13,3 +13,30 @@
     - cmcdonald82.environment_role
     - cmcdonald82.firewall_role
     - cmcdonald82.server_security_role
+
+- name: Deploy static app to server
+  hosts: all
+  remote_user: "{{ remote_username }}"
+  become: yes
+
+  tasks:
+    - name: Static | Ensure deploy directory exists
+      file:
+        path: "{{ deploy_directory }}"
+        state: directory
+
+    - name: Static | Copy static app files into deploy directory
+      synchronize:
+        src: "{{ static_app_files_path_local }}"
+        dest: "{{ deploy_directory }}"
+      # notify: 
+      #   - reload nginx
+
+  tags:
+    - deploy_static
+
+  # handlers:
+  #   - name: reload nginx
+  #     service: 
+  #       name: nginx
+  #       state: reloaded 
