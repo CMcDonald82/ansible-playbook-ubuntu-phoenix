@@ -4,5 +4,5 @@
 
 remote_username: "{{ vault_deploy_username }}"
 phoenix_otp_app_name: example_app
-static_app_files_path_local: ~/test_repos/starter_frontend/build/
+static_app_files_path_local: /path/to/build/dir/
 deploy_directory: "/var/www/app_frontend/"

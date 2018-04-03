@@ -138,6 +138,20 @@ phoenix_otp_app_name: example_app
 ```
 This is the OTP-style, "snake_case" format of the name of the app you're deploying to the server. This variable is needed mainly for 2 reasons: to be set as an environment variable, which will be used by the vm.args file that Erlang uses to configure the app, and in the custom Nginx serverblock file as part of the path to the location where the static assets will be served from once the app is built and deployed as an Elixir release to the server.   
 
+```
+# vars.yml
+
+static_app_files_path_local: /path/to/build/dir/
+```
+This is the path to the directory on the local machine where the build files are located. Basically, this is the directory on the local machine that contains all the static assets you want to copy to the remote host.
+
+```
+# vars.yml
+
+deploy_directory: "/var/www/app_frontend/"
+```
+This is the directory on the remote host that the static files should be deployed to. Make sure your serverblock file(s) reflect this, depending on how you're deploying (i.e. if you're deploying the backend and frontend separately).
+
 * Users
 ```
 # vars.yml
@@ -218,8 +232,12 @@ These are the email and domain name that will be used by Certbot to generate and
 
 nginx_serverblock_files: 
   - ./templates/nginx/serverblocks/phoenix-example.conf
+
+nginx_serverblock_files_removed: 
+  - phoenix-example.conf
 ```
-This is the path to the custom serverblock file(s) for your phoenix app. You can create multiple such files, just put the path to each one here. This way you can tailor your Nginx configurations based on the architecture of the specific app you're deploying while reusing this playbook across different projects.
+The nginx_serverblock_files variable is the path to the custom serverblock file(s) for your phoenix app. You can create multiple such files, just put the path to each one here. This way you can tailor your Nginx configurations based on the architecture of the specific app you're deploying while reusing this playbook across different projects. 
+The nginx_serverblock_files_removed variable is a list of the serverblock files you want to remove from the remote host. These files will be removed from both the /etc/nginx/sites-available and /etc/nginx/sites-enabled directories. These items should just be the filename, not the full path, since these files will already be present in sites-available and/or sites-enabled so there is no need to specify the path.
 
 * Environment
 ```
